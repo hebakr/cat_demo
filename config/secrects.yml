@@ -11,15 +11,15 @@
 # if you're sharing your code publicly.
 
 development:
-  secret_key_base: 'fhkjadbfkhjabdkhjfhakjdfhad'
+  secret_key_base: fhkjadbfkhjabdkhjfhakjdfhad
 
 test:
-  secret_key_base: 'jlbdaakjfbdjksbkjsfbakjdbkajdbfkja'
+  secret_key_base: jlbdaakjfbdjksbkjsfbakjdbkajdbfkja
 
 staging:
-  secret_key_base: 'ipueqoifjlfnlwfgenamd'
+  secret_key_base: ipueqoifjlfnlwfgenamd
 
 # Do not keep production secrets in the repository,
 # instead read values from the environment.
 production:
-  secret_key_base: 'nkjdsbgdjkshg79y9g7adsg7sdgnshfdg897ydfgs'
+  secret_key_base: nkjdsbgdjkshg79y9g7adsg7sdgnshfdg897ydfgs
