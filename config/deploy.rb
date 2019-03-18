@@ -1,12 +1,12 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.11.0"
 
-server '142.93.55.207', roles: [:web, :app, :db], primary: true
+server '157.230.126.46', roles: [:web, :app, :db], primary: true
 
 set :application, "cap_demo"
 set :repo_url, "git@github.com:hebakr/cat_demo.git"
 
-set :user,            'deployer'
+set :user,            'deploy'
 set :puma_threads,    [4, 16]
 set :puma_workers,    1
 
