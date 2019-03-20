@@ -16,7 +16,6 @@ set :use_sudo,        true
 set :stage,           :production
 set :deploy_via,      :remote_cache
 set :deploy_to,       "/home/#{fetch(:user)}/apps/#{fetch(:application)}"
-set :default_shell, "/bin/bash -l"
 set :puma_bind,       "unix://#{shared_path}/tmp/sockets/#{fetch(:application)}-puma.sock"
 set :puma_state,      "#{shared_path}/tmp/pids/puma.state"
 set :puma_pid,        "#{shared_path}/tmp/pids/puma.pid"
@@ -26,7 +25,11 @@ set :ssh_options,     { forward_agent: true, user: fetch(:user), :port => 22, ke
 set :puma_preload_app, true
 set :puma_worker_timeout, nil
 set :puma_init_active_record, true  # Change to false when not using ActiveRecord
+
+append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
+
 append :rbenv_map_bins, 'puma', 'pumactl'
+set :default_shell, "/bin/bash -l"
 
 ## Defaults:
 # set :scm,           :git
@@ -66,7 +69,6 @@ namespace :deploy do
   desc 'Initial Deploy'
   task :initial do
     on roles(:app) do
-      puts 'INIT DEPLOY START ************'
       before 'deploy:restart', 'puma:start'
       invoke 'deploy'
     end
