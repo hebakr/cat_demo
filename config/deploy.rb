@@ -28,7 +28,9 @@ set :puma_init_active_record, true  # Change to false when not using ActiveRecor
 
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
 
-append :rbenv_map_bins, 'puma', 'pumactl'
+# append :rbenv_map_bins, 'puma', 'pumactl'
+set :rbenv_map_bins, %w{rake gem bundle ruby rails puma pumactl}
+
 set :default_shell, "/bin/bash -l"
 
 ## Defaults:
