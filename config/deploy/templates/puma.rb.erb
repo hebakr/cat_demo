@@ -4,7 +4,7 @@ directory '<%= current_path %>'
 rackup "<%=fetch(:puma_rackup)%>"
 environment '<%= fetch(:puma_env) %>'
 <% if fetch(:puma_tag) %>
-tag '<%= fetch(:puma_tag)%>'
+  tag '<%= fetch(:puma_tag)%>'
 <% end %>
 pidfile "<%=fetch(:puma_pid)%>"
 state_path "<%=fetch(:puma_state)%>"
@@ -22,10 +22,6 @@ activate_control_app "<%= fetch(:puma_default_control_app) %>"
 workers <%= puma_workers %>
 <% if fetch(:puma_worker_timeout) %>
 worker_timeout <%= fetch(:puma_worker_timeout).to_i %>
-<% end %>
-
-<% if puma_daemonize? %>
-daemonize
 <% end %>
 
 <% if puma_preload_app? %>
